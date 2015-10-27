@@ -92,3 +92,14 @@ func prime(num: Int) -> Bool {
 }
 
 getPrime([1, 2, 3, 4, 5, 6, 17], condition: prime);
+
+//return a function
+func makeIncrement() -> ((Int) -> Int) {
+    func addOne(number: Int) -> Int {
+        return number + 1;
+    }
+    return addOne;
+}
+
+var increment = makeIncrement();
+increment(16);
