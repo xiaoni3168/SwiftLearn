@@ -105,9 +105,51 @@ var increment = makeIncrement();
 increment(16);
 
 // closure function
-var numbers = [1, 2, 3, 4]
+var numbers = [5, 2, 7, 3]
 numbers.map({
     (number: Int) -> Int in
     let result = 3 * number
     return result
 })
+
+let mappedNumbers = numbers.map({
+    number in number * 3
+})
+
+let sortedNumber = numbers.sort {
+    $0 > $1
+}
+
+// Class
+class Shape {
+    var numberOfSides: Int = 0
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+    func simpleDiscreption() -> String {
+        return "\(name) with \(numberOfSides) sides."
+    }
+}
+var shape = Shape(name: "Triangle")
+shape.numberOfSides = 3
+shape.simpleDiscreption()
+
+// Subclass
+class Square: Shape {
+    var sideLength: Double
+    init(sideLength: Double, name: String) {
+        self.sideLength = sideLength
+        super.init(name: name)
+        numberOfSides = 4
+    }
+    func area() -> Double {
+        return sideLength * sideLength
+    }
+    override func simpleDiscreption() -> String {
+        return "A square with sides of length \(sideLength)"
+    }
+}
+var square = Square(sideLength: 5.2, name: "Square")
+square.area()
+square.simpleDiscreption()
