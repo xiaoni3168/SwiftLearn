@@ -50,7 +50,7 @@ print(loopNumber2);
 func greet(name: String, time: String) -> String {
     return "Hi \(name), it's \(time) now";
 }
-var alo = greet("Ani", "10:30");
+var alo = greet("Ani", time: "10:30");
 
 // function more arguments
 func sum(number: Int...) -> Int {
@@ -65,12 +65,10 @@ print(total);
 
 // function for condition
 func getPrime(numbers: [Int], condition: (Int) -> Bool) -> [Int] {
-    var count = 0;
     var list = [Int]();
     for number in numbers {
         if condition(number) {
-            list[count] = number;
-            count++;
+            list.append(number);
         }
     }
     return list;
@@ -78,15 +76,18 @@ func getPrime(numbers: [Int], condition: (Int) -> Bool) -> [Int] {
 
 func prime(num: Int) -> Bool {
     var result: Bool = false;
-    for i in 0..<num/2 {
-        if num % i == 0 && i != 1 {
-            result = false;
-        } else {
-            result = true;
+    if num == 1 {
+        result = true;
+    } else {
+        for var i = 1; i <= num/2; ++i {
+            if num % i == 0 && i != 1 {
+                result = false;
+            } else {
+                result = true;
+            }
         }
     }
     return result;
 }
 
-let primeList = getPrime([1, 2, 3, 4, 5, 6], prime);
-print(primeList);
+getPrime([1, 2, 3, 4, 5, 6, 17], condition: prime);
