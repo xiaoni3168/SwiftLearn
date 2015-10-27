@@ -79,7 +79,8 @@ func prime(num: Int) -> Bool {
     if num == 1 {
         result = true;
     } else {
-        for var i = 1; i <= num/2; ++i {
+//        for var i = 1; i <= num/2; ++i {
+        for i in 1...num/2 {
             if num % i == 0 && i != 1 {
                 result = false;
             } else {
