@@ -103,3 +103,11 @@ func makeIncrement() -> ((Int) -> Int) {
 
 var increment = makeIncrement();
 increment(16);
+
+// closure function
+var numbers = [1, 2, 3, 4]
+numbers.map({
+    (number: Int) -> Int in
+    let result = 3 * number
+    return result
+})
