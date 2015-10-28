@@ -257,3 +257,16 @@ enum Suit {
 
 let hearts = Suit.Hearts
 let heartDesciption = hearts.simpleDesciption()
+
+// Struct
+struct Card {
+    var rank: Rank
+    var suit: Suit
+    
+    func simpleDescription() -> String {
+        return "The \(rank.simpleDiscription()) of \(suit.simpleDesciption())"
+    }
+}
+
+let sevenOfHearts = Card(rank: .Seven, suit: .Hearts)
+let sevenOfHeartsDescription = sevenOfHearts.simpleDescription()
