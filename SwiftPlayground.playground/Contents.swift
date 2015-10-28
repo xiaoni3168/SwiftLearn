@@ -182,3 +182,27 @@ print(triangle.perimeter)
 triangle.perimeter = 9.9
 print(triangle.sideLength)
 triangle.simpleDiscreption()
+
+// function willSet
+class TriangleAndSquare {
+    var triangle: Triangle {
+        willSet {
+            square.sideLength = newValue.sideLength
+        }
+    }
+    var square: Square {
+        willSet {
+            triangle.sideLength = newValue.sideLength
+        }
+    }
+    
+    init(size: Double, name: String) {
+        square = Square(sideLength: size, name: name)
+        triangle = Triangle(sideLength: size, name: name)
+    }
+}
+var triangleAndSquare = TriangleAndSquare(size: 10, name: "test shape")
+print(triangleAndSquare.square.sideLength)
+print(triangleAndSquare.triangle.sideLength)
+triangleAndSquare.square = Square(sideLength: 50, name: "larger shape")
+print(triangleAndSquare.triangle.sideLength)
