@@ -233,3 +233,27 @@ enum Rank: Int {
 }
 let ace = Rank.Ace
 let aceRawValue = ace.rawValue
+
+if let convertedRank = Rank(rawValue: 13) {
+    let threeDescription = convertedRank.simpleDiscription()
+}
+
+
+enum Suit {
+    case Spades, Hearts, Diamonds, Clubs
+    func simpleDesciption() -> String {
+        switch self {
+        case .Spades:
+            return "spades"
+        case .Hearts:
+            return "hearts"
+        case .Diamonds:
+            return "diamonds"
+        case .Clubs:
+            return "clubs"
+        }
+    }
+}
+
+let hearts = Suit.Hearts
+let heartDesciption = hearts.simpleDesciption()
