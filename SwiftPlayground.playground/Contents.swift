@@ -270,3 +270,18 @@ struct Card {
 
 let sevenOfHearts = Card(rank: .Seven, suit: .Hearts)
 let sevenOfHeartsDescription = sevenOfHearts.simpleDescription()
+
+enum ServerResponse {
+    case Result(String, String)
+    case Error(String)
+}
+
+let success = ServerResponse.Result("6:00", "20:00")
+let failure = ServerResponse.Error("Out of cheese")
+
+switch success {
+case let .Result(sunrise, sunset):
+    print("Sunrise is at \(sunrise) and sunset is at \(sunset).")
+case let .Error(error):
+    print("Failure... \(error)")
+}
