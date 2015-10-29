@@ -285,3 +285,32 @@ case let .Result(sunrise, sunset):
 case let .Error(error):
     print("Failure... \(error)")
 }
+
+// Protocol and Extensions
+protocol ExampleProtocol {
+    var simpleDescription: String {
+        get
+    }
+    mutating func adjust()
+}
+
+class SimpleClass: ExampleProtocol {
+    var simpleDescription: String = "A very simple class"
+    var anotherProperty: Int = 1024
+    func adjust() {
+        simpleDescription += " Now 100% adjusted."
+    }
+}
+var simpleClass = SimpleClass()
+simpleClass.adjust()
+let aDescription = simpleClass.simpleDescription
+
+struct SimpleStruct: ExampleProtocol {
+    var simpleDescription: String = "A simple structure"
+    mutating func adjust() {
+        simpleDescription += "(adjusted)"
+    }
+}
+var simpleStruct = SimpleStruct()
+simpleStruct.adjust()
+let bDescription = simpleStruct.simpleDescription
