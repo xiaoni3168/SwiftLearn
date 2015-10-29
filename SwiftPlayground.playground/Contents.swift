@@ -314,3 +314,26 @@ struct SimpleStruct: ExampleProtocol {
 var simpleStruct = SimpleStruct()
 simpleStruct.adjust()
 let bDescription = simpleStruct.simpleDescription
+
+extension Int: ExampleProtocol {
+    var simpleDescription: String {
+        return "The number \(self)"
+    }
+    mutating func adjust() {
+        self += 27
+    }
+}
+print(7.simpleDescription)
+
+let protocolValue: ExampleProtocol = simpleClass
+print(protocolValue.simpleDescription)
+
+// Generic function
+func repeatItem<Item>(item: Item, numberOfTime: Int) -> [Item] {
+    var result = [Item]()
+    for _ in 0 ..< numberOfTime {
+        result.append(item)
+    }
+    return result
+}
+repeatItem(7, numberOfTime: 4)
