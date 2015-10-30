@@ -356,3 +356,31 @@ func anyCommonElements <T: SequenceType, U: SequenceType where T.Generator.Eleme
     return false
 }
 anyCommonElements([1, 2, 3], [3])
+
+
+// Chapter 2
+// some practise
+var hello = "Bonjour"
+print("The current value of hello is \(hello)")
+
+let decimalDouble = 12.1875
+let exponentDouble = 1.21875e1
+let hexadecimalDouble = 0xC.3p0
+
+
+let paddedDouble = 000123.456
+let oneMillion = 1_000_000
+let justOverOneMillion = 1_000_000.000_000_1
+
+//let cannotBeNegative: UInt8 = -1
+//UInt8 cannot store negative numbers, and so this will report an error
+
+//let tooBig: Int8 = Int8.max + 1
+//Int8 cannot store a number larger than its maximum value,
+//and so this will also report an error
+
+let uint16: UInt16 = UInt16.max
+
+typealias AudioSample = UInt16
+var maxAmplitudeFound = AudioSample.min
+
